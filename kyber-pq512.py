@@ -5,6 +5,8 @@ import base64
 import json
 
 def read_from_file(filename):
+
+    # open and read the whole plaintext file
     with open(filename, 'r') as f:
         return str(f.read()) 
 
@@ -80,7 +82,8 @@ def main():
     public_key, private_key = generate_kyber_keypair()
 
     i = 0
-
+    
+    # Loop until all text files have been encrypted/decrypted
     while i != 100:
         i = i + 1
         
