@@ -14,10 +14,11 @@ def monitor_resources(stop_event):
     
     while not stop_event.is_set():
         cpu_usage = process.cpu_percent(interval=1)
-        memory_usage = process.memory_info().rss / 1024  # in KB
+        memory_usage = process.memory_info().vms / (1024 * 1024)  # in MB
+        # memory_usage = process.memory_info().vms / 1024 # in KB
         timestamp = time.strftime("%H:%M:%S", time.localtime())
         
-        print(f"[{timestamp}] CPU: {cpu_usage:.8f}%, Memory: {memory_usage:.6f} MB")
+        print(f"[{timestamp}] CPU: {cpu_usage:.3f}%, Memory: {memory_usage:.6f} MB")
         
         cpu_values.append(cpu_usage)
         memory_values.append(memory_usage)
@@ -86,7 +87,7 @@ def main():
     summary_file = "logs/3des.csv"
     with open(summary_file, 'w', newline='') as csvfile:
         csvwriter = csv.writer(csvfile)
-        csvwriter.writerow(['Run', 'Execution Time (s)', 'Avg CPU (%)', 'Max CPU (%)', 'Avg Memory (KB)', 'Max Memory (KB)'])
+        csvwriter.writerow(['Run', 'Execution Time (s)', 'Avg CPU (%)', 'Max CPU (%)', 'Avg Memory (MB)', 'Max Memory (MB)'])
     
     for run in range(1, 11):
         print(f"\n=== Starting Run {run} of 10 ===")
@@ -146,11 +147,11 @@ def main():
                 # Write summary to the summary file with 4 decimal places
                 with open(summary_file, 'a', newline='') as csvfile:
                     csvwriter = csv.writer(csvfile)
-                    csvwriter.writerow([run, f"{execution_time:.4f}", f"{avg_cpu:.8f}", f"{max_cpu:.8f}", 
+                    csvwriter.writerow([run, f"{execution_time:.4f}", f"{avg_cpu:.3f}", f"{max_cpu:.3f}", 
                                       f"{avg_memory:.6f}", f"{max_memory:.6f}"])
                 
                 # Print summary with 4 decimal places
-                print(f"Run {run} stats - Avg CPU: {avg_cpu:.8f}%, Max CPU: {max_cpu:.8f}%, "
+                print(f"Run {run} stats - Avg CPU: {avg_cpu:.3f}%, Max CPU: {max_cpu:.3f}%, "
                       f"Avg Memory: {avg_memory:.6f} MB, Max Memory: {max_memory:.6f} MB")
             else:
                 print("No data collected for statistics calculation")
