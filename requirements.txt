@@ -1,14 +1,5 @@
-<<<<<<< Updated upstream
-cryptography>=40.0.0
-pyspx>=0.7.0
-kyber-py>=0.4.0
-dilithium-py>=0.2.0
-psutil
-=======
-cryptography>=39.0.0
-pycryptodome>=3.15.0
+cryptography>=41.0.0
 psutil>=5.9.0
+kyber-py>=0.5.0
 pyspx>=0.5.0
-kyber-py>=0.2.0
-dilithium-py>=0.1.0
->>>>>>> Stashed changes
+dilithium-py>=0.5.0
