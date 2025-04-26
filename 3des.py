@@ -4,6 +4,8 @@ import os
 
 
 def read_from_file(filename):
+
+    # open and read the whole plaintext file
     with open(filename, 'r') as f:
         return str(f.read())   
 
@@ -17,9 +19,11 @@ def generate_key_and_iv():
 
 def encrypt(plaintext, key, iv):
 
+    # making sure the input is utf-8
     if isinstance(plaintext, str):
         plaintext = plaintext.encode('utf-8')
     
+    # padding plaintext
     padder = lambda s: s + (8 - len(s) % 8) * bytes([8 - len(s) % 8])
     padded_plaintext = padder(plaintext)
     
@@ -54,6 +58,7 @@ def main():
     
     i = 0
 
+    # looping until all text files have been encrypted and decrypted
     while i != 100:
         i = i + 1
         
