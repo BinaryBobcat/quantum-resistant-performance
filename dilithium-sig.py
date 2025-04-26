@@ -1,7 +1,8 @@
 from dilithium_py.dilithium import Dilithium2
-import base64
 
 def read_from_file(filename):
+
+    # open and read the whole plaintext file
     with open(filename, 'r') as f:
         return str(f.read())
 
@@ -10,6 +11,7 @@ pk, sk = Dilithium2.keygen()
 
 i = 0
 
+# looping until all text files have been encrypted and decrypted
 while i != 100:
     i = i + 1
         
