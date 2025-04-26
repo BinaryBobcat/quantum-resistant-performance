@@ -5,7 +5,7 @@ This repository contains two Python scripts for monitoring system resources.
 ## Requirements
 
 - Python 3.6+
-- psutil library (`pip install psutil`)
+- pip install requirements.txt
 
 ## Scripts
 
@@ -16,6 +16,11 @@ Monitors the resource usage of the current Python process only.
 ### 2. system_monitor.py
 
 Monitors the resource usage of the entire system.
+
+### 3. encryption scripts
+
+Each encryption algorithm tested has their own python script that will encrypt/decrypt or sign/verify the full directory of text files
+
 
 ## Usage
 
