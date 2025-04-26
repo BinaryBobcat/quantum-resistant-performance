@@ -1,39 +1,116 @@
 # Quantum Resistance Performance Scripts
 
-This repository contains Python scripts for quantum and non-quantum resistant encryption algorithms along with scripts to monitoring system resources to determine algorithm performance.
+This project provides a comprehensive benchmarking suite for comparing various cryptographic algorithms, including both traditional and post-quantum cryptographic methods. The suite measures execution time, CPU usage, and memory consumption across multiple runs to provide reliable performance metrics.
 
-## Requirements
+## Overview
 
-- Python 3.6+
-- pip install requirements.txt
-- https://github.com/janmojzis/python-mceliece.git
-- https://github.com/tprest/falcon.py
+The benchmarking suite includes implementations for:
 
-## Scripts
+### Traditional Cryptographic Algorithms
+- **AES-256** (Advanced Encryption Standard with 256-bit keys)
+- **3DES** (Triple Data Encryption Standard)
+- **ChaCha20** (Stream Cipher)
+- **RSA** (Rivest–Shamir–Adleman)
+- **ECC** (Elliptic Curve Cryptography)
 
-### 1. process_monitor.py
+### Post-Quantum Cryptographic Algorithms
+- **Kyber-512** (Lattice-based KEM)
+- **McEliece** (Code-based Encryption)
+- **SPHINCS** (Stateless Hash-based Signatures)
+- **Falcon** (Lattice-based Signatures)
+- **Dilithium** (Lattice-based Signatures)
 
-Monitors the resource usage of the current Python process only.
+## Installation
 
-### 2. system_monitor.py
+To set up the benchmarking environment:
 
-Monitors the resource usage of the entire system.
+1. Clone this repository
+2. Install the required dependencies:
+   ```
+   pip3 install -r requirements.txt
+   
+   sudo apt-get install libmceliece1
+   ```
 
-### 3. encryption scripts
+## Required Dependencies
 
-Each encryption algorithm tested has their own python script that will encrypt/decrypt or sign/verify the full directory of text files
+The project requires the following Python packages:
+- cryptography (≥41.0.0)
+- psutil (≥5.9.0)
+- kyber-py (≥0.5.0)
+- pyspx (≥0.5.0)
+- dilithium-py (≥0.5.0)
+- numpy (≥2.2.5)
+- crypto (≥1.4.1)
+- pycryptodome (≥3.22.0)
 
+Additional libraries may be required for specific algorithms:
+- python-mceliece (for McEliece algorithm)
+- falcon.py (for Falcon signatures)
 
-## Usage
+## Directory Structure
 
-1. To monitor the current Python process only:
+```
+├── algs/                 # External algorithm implementations
+│   ├── python-mceliece/
+│   └── falcon.py/
+├── ciphertexts/          # Test files (numbered 1-100)
+├── logs/                 # Directory for benchmark results
+├── *.py                  # Algorithm implementation files
+└── requirements.txt      # Required dependencies
+```
 
-`python process_monitor.py`
+## Benchmark Methodology
 
-2. To monitor system-wide resources:
+Each script:
 
-`python system_monitor.py`
+1. Performs 10 complete runs 
+2. For each run:
+   - Processes 100 text files from the `ciphertexts/` directory
+   - Encrypts and decrypts (or signs and verifies) each file
+   - Monitors CPU usage and memory consumption in real-time
+   - Records execution time for the complete process
+3. Saves detailed results to CSV files in the `logs/` directory
 
-You can adjust the following parameters in both scripts:
-- interval: How frequently to collect data (in seconds)
-- duration: How long to run the monitoring (in seconds), or set to None to run until stopped with Ctrl+C
+The benchmark records:
+- Execution time (seconds)
+- Average CPU usage (%)
+- Maximum CPU usage (%)
+- Average memory usage (MB)
+- Maximum memory usage (MB)
+
+## Running the Benchmarks
+
+To run an individual benchmark:
+
+```bash
+python3 algorithm-name.py
+```
+
+Each benchmark will:
+1. Create a `logs/` directory if it doesn't exist
+2. Generate cryptographic keys
+3. Process all test files in the `ciphertexts/` directory
+4. Save results to `logs/algorithm-name.csv`
+
+## Analyzing Results
+
+After running the benchmarks, you can compare the performance of different algorithms by examining the CSV files in the `logs/` directory. These files contain detailed metrics for each run, allowing for statistical analysis of performance characteristics.
+
+## Algorithms Overview
+
+### Symmetric Encryption
+- **AES-256**: Block cipher with 256-bit keys using CBC mode
+- **3DES**: Block cipher using CBC mode
+- **ChaCha20**: Stream cipher
+
+### Asymmetric Encryption
+- **RSA**: Traditional public-key cryptography (2048-bit keys)
+- **ECC**: Elliptic curve cryptography using SECP256R1 curve
+- **Kyber-512**: Lattice-based post-quantum key encapsulation mechanism
+- **McEliece**: Code-based post-quantum encryption
+
+### Digital Signatures
+- **Dilithium**: Lattice-based post-quantum signature scheme
+- **Falcon**: Lattice-based post-quantum signature scheme
+- **SPHINCS**: Hash-based post-quantum signature scheme
