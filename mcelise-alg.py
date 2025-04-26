@@ -5,14 +5,19 @@ from cryptography.hazmat.primitives.ciphers.aead import AESGCM
 import os
 
 def read_from_file(filename):
+    
+    # open and read the whole plaintext file
     with open(filename, 'r') as f:
         return f.read().strip()  # remove newlines if any
 
+# setting kem = to the specific mcecliece alg
 kem = mceliece.mceliece6960119
 
+# generating a keypair using the library
 pk, sk = kem.keypair()
 
-for i in range(1, 101):  # 1 to 100 inclusive
+# Loop until all text files have been encrypted/decrypted
+for i in range(1, 101):
     filename = f"./ciphertexts/{i}"
     
     ct_plaintext = read_from_file(filename)
