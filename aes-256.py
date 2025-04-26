@@ -14,7 +14,7 @@ def monitor_resources(stop_event):
     
     while not stop_event.is_set():
         cpu_usage = process.cpu_percent(interval=1)
-        memory_usage = process.memory_info().vms / (1024 * 1024)  # in MB
+        memory_usage = process.memory_info().rss / (1024 * 1024)  # in MB
         # memory_usage = process.memory_info().vms / 1024 # in KB
         timestamp = datetime.now().strftime("%H:%M:%S.%f")[:-3]
         
