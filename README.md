@@ -1,6 +1,6 @@
-# System Monitoring Scripts
+# Quantum Resistance Performance Scripts
 
-This repository contains two Python scripts for monitoring system resources.
+This repository contains Python scripts for quantum and non-quantum resistant encryption algorithms along with scripts to monitoring system resources to determine algorithm performance.
 
 ## Requirements
 
