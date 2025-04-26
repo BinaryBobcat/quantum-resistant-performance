@@ -6,20 +6,26 @@ import base64
 import json
 
 def read_from_file(filename):
+    
+    # open and read the whole plaintext file
     with open(filename, 'r') as f:
         return str(f.read()) 
 
 def generate_rsa_key_pair(key_size=2048):
 
+    # generate private key with e = 65537 and defined bit length
     private_key = rsa.generate_private_key(
         public_exponent=65537,
         key_size=key_size
     )
+
+    # make a public key based on private key
     public_key = private_key.public_key()
     return private_key, public_key
 
 def serialize_keys(private_key, public_key):
 
+    # make a serialized version of the private and public key
     private_key_pem = private_key.private_bytes(
         encoding=serialization.Encoding.PEM,
         format=serialization.PrivateFormat.PKCS8,
@@ -108,6 +114,7 @@ def main():
 
     i = 0
 
+    # Loop until all text files have been encrypted/decrypted
     while i != 100:
         i = i + 1
         
