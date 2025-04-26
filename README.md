@@ -97,6 +97,10 @@ Each benchmark will:
 
 After running the benchmarks, you can compare the performance of different algorithms by examining the CSV files in the `logs/` directory. These files contain detailed metrics for each run, allowing for statistical analysis of performance characteristics.
 
+## Example Result
+
+<img width="615" alt="image" src="https://github.com/user-attachments/assets/a35a4698-bc10-40d1-a67a-fc1a71dabcbb" />
+
 ## Algorithms Overview
 
 ### Symmetric Encryption
