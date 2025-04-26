@@ -3,12 +3,16 @@ from cryptography.hazmat.backends import default_backend
 import os
 
 def generate_key_and_iv():
+
+    # Generate random keys and ivs 
     key = os.urandom(32)
     iv = os.urandom(16)
 
     return key, iv
 
 def read_from_file(filename):
+
+    # open and read the whole plaintext file
     with open(filename, 'r') as f:
         return str(f.read())            
 
@@ -51,6 +55,7 @@ def main():
     
     i = 0
 
+    # Loop until all text files have been encrypted/decrypted
     while i != 100:
         i = i + 1
         
