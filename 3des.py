@@ -17,7 +17,7 @@ def monitor_resources(stop_event):
         memory_usage = process.memory_info().rss / 1024  # in KB
         timestamp = time.strftime("%H:%M:%S", time.localtime())
         
-        print(f"[{timestamp}] CPU: {cpu_usage:.4f}%, Memory: {memory_usage:.4f} MB")
+        print(f"[{timestamp}] CPU: {cpu_usage:.8f}%, Memory: {memory_usage:.6f} MB")
         
         cpu_values.append(cpu_usage)
         memory_values.append(memory_usage)
@@ -86,7 +86,7 @@ def main():
     summary_file = "logs/3des.csv"
     with open(summary_file, 'w', newline='') as csvfile:
         csvwriter = csv.writer(csvfile)
-        csvwriter.writerow(['Run', 'Execution Time (s)', 'Avg CPU (%)', 'Max CPU (%)', 'Avg Memory (MB)', 'Max Memory (MB)'])
+        csvwriter.writerow(['Run', 'Execution Time (s)', 'Avg CPU (%)', 'Max CPU (%)', 'Avg Memory (KB)', 'Max Memory (KB)'])
     
     for run in range(1, 11):
         print(f"\n=== Starting Run {run} of 10 ===")
@@ -146,12 +146,12 @@ def main():
                 # Write summary to the summary file with 4 decimal places
                 with open(summary_file, 'a', newline='') as csvfile:
                     csvwriter = csv.writer(csvfile)
-                    csvwriter.writerow([run, f"{execution_time:.4f}", f"{avg_cpu:.4f}", f"{max_cpu:.4f}", 
-                                      f"{avg_memory:.4f}", f"{max_memory:.4f}"])
+                    csvwriter.writerow([run, f"{execution_time:.4f}", f"{avg_cpu:.8f}", f"{max_cpu:.8f}", 
+                                      f"{avg_memory:.6f}", f"{max_memory:.6f}"])
                 
                 # Print summary with 4 decimal places
-                print(f"Run {run} stats - Avg CPU: {avg_cpu:.4f}%, Max CPU: {max_cpu:.4f}%, "
-                      f"Avg Memory: {avg_memory:.4f} MB, Max Memory: {max_memory:.4f} MB")
+                print(f"Run {run} stats - Avg CPU: {avg_cpu:.8f}%, Max CPU: {max_cpu:.8f}%, "
+                      f"Avg Memory: {avg_memory:.6f} MB, Max Memory: {max_memory:.6f} MB")
             else:
                 print("No data collected for statistics calculation")
     
