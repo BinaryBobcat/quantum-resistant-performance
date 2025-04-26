@@ -4,11 +4,14 @@ from cryptography.hazmat.backends import default_backend
 import os
 
 def read_from_file(filename):
+
+    # open and read the whole plaintext file
     with open(filename, 'r') as f:
         return str(f.read())   
 
 def generate_key_and_nonce():
 
+    # Generate random keys and ivs 
     key = os.urandom(32)
     nonce = os.urandom(16)
 
@@ -16,6 +19,7 @@ def generate_key_and_nonce():
 
 def encrypt(plaintext, key, nonce):
 
+    # making sure input is utf-8
     if isinstance(plaintext, str):
         plaintext = plaintext.encode('utf-8')
     
@@ -45,6 +49,7 @@ def main():
     
     i = 0
 
+    # looping until all text files have been encrypted and decrypted
     while i != 100:
         i = i + 1
         
