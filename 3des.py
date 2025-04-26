@@ -13,7 +13,7 @@ def monitor_resources(stop_event):
     memory_values = []
     
     while not stop_event.is_set():
-        cpu_usage = process.cpu_percent(interval=0)
+        cpu_usage = process.cpu_percent(interval=1)
         memory_usage = process.memory_info().rss / 1024  # in KB
         timestamp = time.strftime("%H:%M:%S", time.localtime())
         
