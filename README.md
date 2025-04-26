@@ -1,4 +1,4 @@
-# Quantum Resistance Performance Scripts
+# Quantum Resistant Algorithm Performance
 
 This project provides a comprehensive benchmarking suite for comparing various cryptographic algorithms, including both traditional and post-quantum cryptographic methods. The suite measures execution time, CPU usage, and memory consumption across multiple runs to provide reliable performance metrics.
 
