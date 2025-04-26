@@ -1,0 +1,5 @@
+cryptography>=40.0.0
+pyspx>=0.7.0
+kyber-py>=0.4.0
+dilithium-py>=0.2.0
+psutil
