@@ -1,5 +1,7 @@
 # Quantum Resistant Algorithm Performance
 
+![ChatGPT Image Apr 26, 2025 at 05_36_54 PM](https://github.com/user-attachments/assets/d7f784eb-2e97-4b51-a14d-ac0cbdaa7e0b)
+
 This project provides a comprehensive benchmarking suite for comparing various cryptographic algorithms, including both traditional and post-quantum cryptographic methods. The suite measures execution time, CPU usage, and memory consumption across multiple runs to provide reliable performance metrics.
 
 ## Overview
