@@ -7,7 +7,6 @@ import threading
 import csv
 from datetime import datetime
 
-################ Monitor ################
 def monitor_resources(stop_event):
     process = psutil.Process()
     cpu_values = []
@@ -28,20 +27,12 @@ def monitor_resources(stop_event):
     return cpu_values, memory_values
 
 def generate_key_and_iv():
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
     # Generate random keys and ivs 
     key = os.urandom(32)
     iv = os.urandom(16)
     return key, iv
 
 def read_from_file(filename):
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
     # open and read the whole plaintext file
     with open(filename, 'r') as f:
         return str(f.read())            
@@ -80,10 +71,6 @@ def decrypt(ciphertext, key, iv):
 
 def process_files(key, iv):
     i = 0
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
     # Loop until all text files have been encrypted/decrypted
     while i != 100:
         i = i + 1

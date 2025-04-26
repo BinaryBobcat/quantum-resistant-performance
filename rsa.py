@@ -131,7 +131,6 @@ def main():
     # Ensure logs directory exists
     os.makedirs("logs", exist_ok=True)
     
-<<<<<<< Updated upstream
     # Generate RSA key pair
     print("Generating RSA key pair...")
     private_key, public_key = generate_rsa_key_pair(2048)
@@ -141,7 +140,7 @@ def main():
     # Loop until all text files have been encrypted/decrypted
     while i != 100:
         i = i + 1
-=======
+
     # Create summary results file
     summary_file = "logs/rsa.csv"
     with open(summary_file, 'w', newline='') as csvfile:
@@ -150,8 +149,7 @@ def main():
     
     for run in range(1, 11):
         print(f"\n=== Starting Run {run} of 10 ===")
->>>>>>> Stashed changes
-        
+
         # Create a stop event for the monitoring thread
         stop_event = threading.Event()
         

@@ -132,17 +132,15 @@ def main():
         csvwriter = csv.writer(csvfile)
         csvwriter.writerow(['Run', 'Execution Time (s)', 'Avg CPU (%)', 'Max CPU (%)', 'Avg Memory (MB)', 'Max Memory (MB)'])
     
-<<<<<<< Updated upstream
     i = 0
 
     # looping until all text files have been encrypted and decrypted
     while i != 100:
         i = i + 1
-=======
+
     for run in range(1, 11):
         print(f"\n=== Starting Run {run} of 10 ===")
->>>>>>> Stashed changes
-        
+
         # Create a stop event for the monitoring thread
         stop_event = threading.Event()
         

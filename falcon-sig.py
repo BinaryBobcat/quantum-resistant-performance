@@ -30,8 +30,6 @@ def read_from_file(filename):
     with open(filename, 'r') as f:
         return str(f.read())
 
-<<<<<<< Updated upstream
-
 # Generate Falcon-512 key pair
 sk = falcon.SecretKey(512)
 pk = falcon.PublicKey(sk)
@@ -43,11 +41,10 @@ while i != 100:
     i = i + 1
         
     filename = "./ciphertexts/"+str(i)
-=======
+
 def main():
     # Ensure logs directory exists
     os.makedirs("logs", exist_ok=True)
->>>>>>> Stashed changes
     
     # Create summary results file
     summary_file = "logs/falcon-sig.csv"

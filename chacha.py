@@ -31,21 +31,13 @@ def read_from_file(filename):
         return str(f.read())   
 
 def generate_key_and_nonce():
-<<<<<<< Updated upstream
-
     # Generate random keys and ivs 
-=======
->>>>>>> Stashed changes
     key = os.urandom(32)
     nonce = os.urandom(16)
     return key, nonce
 
 def encrypt(plaintext, key, nonce):
-<<<<<<< Updated upstream
-
     # making sure input is utf-8
-=======
->>>>>>> Stashed changes
     if isinstance(plaintext, str):
         plaintext = plaintext.encode('utf-8')
     
@@ -71,14 +63,13 @@ def decrypt(ciphertext, key, nonce):
 def main():
     # Ensure logs directory exists
     os.makedirs("logs", exist_ok=True)
-    
-<<<<<<< Updated upstream
+
     i = 0
 
     # looping until all text files have been encrypted and decrypted
     while i != 100:
         i = i + 1
-=======
+
     # Create summary results file
     summary_file = "logs/chacha.csv"
     with open(summary_file, 'w', newline='') as csvfile:
@@ -87,7 +78,6 @@ def main():
     
     for run in range(1, 11):
         print(f"\n=== Starting Run {run} of 10 ===")
->>>>>>> Stashed changes
         
         # Create a stop event for the monitoring thread
         stop_event = threading.Event()

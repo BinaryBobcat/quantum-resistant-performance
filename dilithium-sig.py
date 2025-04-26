@@ -1,6 +1,4 @@
 from dilithium_py.dilithium import Dilithium2
-<<<<<<< Updated upstream
-=======
 import base64
 import psutil
 import time
@@ -24,7 +22,6 @@ def monitor_resources(stop_event):
         memory_values.append(memory_usage)
     
     return cpu_values, memory_values
->>>>>>> Stashed changes
 
 def read_from_file(filename):
 
@@ -32,7 +29,6 @@ def read_from_file(filename):
     with open(filename, 'r') as f:
         return str(f.read())
 
-<<<<<<< Updated upstream
 # Generate a keypair
 pk, sk = Dilithium2.keygen()
 
@@ -43,11 +39,10 @@ while i != 100:
     i = i + 1
         
     filename = "./ciphertexts/"+str(i)
-=======
+
 def main():
     # Ensure logs directory exists
     os.makedirs("logs", exist_ok=True)
->>>>>>> Stashed changes
     
     # Create summary results file
     summary_file = "logs/dilithium-sig.csv"

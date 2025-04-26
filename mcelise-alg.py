@@ -31,7 +31,6 @@ def read_from_file(filename):
     with open(filename, 'r') as f:
         return f.read().strip()  # remove newlines if any
 
-<<<<<<< Updated upstream
 # setting kem = to the specific mcecliece alg
 kem = mceliece.mceliece6960119
 
@@ -41,11 +40,10 @@ pk, sk = kem.keypair()
 # Loop until all text files have been encrypted/decrypted
 for i in range(1, 101):
     filename = f"./ciphertexts/{i}"
-=======
+
 def main():
     # Ensure logs directory exists
     os.makedirs("logs", exist_ok=True)
->>>>>>> Stashed changes
     
     # Create summary results file
     summary_file = "logs/mcelise-alg.csv"
