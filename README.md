@@ -101,7 +101,7 @@ After running the benchmarks, you can compare the performance of different algor
 
 ## Example Result
 
-<img width="615" alt="image" src="https://github.com/user-attachments/assets/a35a4698-bc10-40d1-a67a-fc1a71dabcbb" />
+<img width="617" alt="image" src="https://github.com/user-attachments/assets/ef2244af-6342-402d-bdf9-6d9bafb31a05" />
 
 ## Algorithms Overview
 
