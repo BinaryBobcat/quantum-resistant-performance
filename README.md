@@ -6,6 +6,8 @@ This repository contains two Python scripts for monitoring system resources.
 
 - Python 3.6+
 - pip install requirements.txt
+- https://github.com/janmojzis/python-mceliece.git
+- https://github.com/tprest/falcon.py
 
 ## Scripts
 
